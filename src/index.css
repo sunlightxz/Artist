@@ -42,7 +42,7 @@
   transform: translate(-50% ,0%);
   left : 35%;
   margin-top :325px;
-  width: 145px;
+  width: 120px;
   height: 120px;
 }
 
@@ -64,4 +64,23 @@
   height: 100%;
   background: #fff;
   clip-path: polygon(45% 0%, 55% 0%, 55% 100%, 45% 100%);
+}
+
+
+html lenis 
+html lenis body
+{
+height: auto;
+}
+
+lenis lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+lenis lenis-smooth [data-lenis-prevent]{
+  scroll-behavior: contain;
+}
+
+lenis lenis-stopped {
+  overflow: hidden;
 }

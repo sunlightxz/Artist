@@ -36,40 +36,80 @@ const About = () => {
       end: "bottom top",
       pin: true,
       pinSpacing: false,
-    });
+      markers:true ,
+    }),
     ScrollTrigger.create({
-      trigger: ".pinned",
-      start: "top top",
-      endTrigger: ".header-info",
-      end: "bottom bottom",
-      markers: true,
-      onUpdate: (self) => {
-        const rotation = self.progress * 360;
-        gsap.to(".revealer", { rotation });
-      },
-    });
-    ScrollTrigger.create({
-      trigger: ".pinned",
-      start: "top top",
-      endTrigger: ".header-info",
-      end: "bottom bottom",
-      markers: true,
-      onUpdate: (self) => {
-        const progress = self.progress;
-        const clipPath = `polygon(
-                    ${45 - 45 * progress}% ${0 + 0 * progress}%,
-                    ${55 + 45 * progress}% ${0 + 0 * progress}%,
-                    ${55 + 45 * progress}% ${100 - 0 * progress}%,
-                    ${45 - 45 * progress}% ${100 - 0 * progress}%,
+        trigger: ".header-info",
+        start: "top top",
+        endTrigger: ".whitespace",
+        end: "bottom top",
+        pin: true,
+        pinSpacing: false,
+        markers:true ,
 
-                )`;
-        gsap.to(".revealer-1", ".revealer-2", {
-          clipPath: clipPath,
-          ease: "none",
-          duration: 0,
+      }),
+    ScrollTrigger.create({
+        trigger: ".pinned",
+        start: "top top",
+        endTrigger: ".header-info",
+        end: "bottom bottom",
+        onUpdate: (self) => {
+          const rotation = self.progress * 360;
+          gsap.to(".revealer", { rotation });
+          gsap.to(".revealer", {scale: 0.5, duration: 2.5});
+  
+        },
+      }),
+  
+      ScrollTrigger.create({
+        trigger: ".pinned",
+        start: "top top",
+        endTrigger: ".header-info",
+        end: "bottom bottom",
+        onUpdate: (self) => {
+          const progress = self.progress;
+          const clipPath1 = `polygon(
+              ${45 - 45 * progress}% ${0 + 0 * progress}%,
+              ${55 + 45 * progress}% ${0 + 0 * progress}%,
+              ${55 + 45 * progress}% ${100 - 0 * progress}%,
+              ${45 - 45 * progress}% ${100 - 0 * progress}%
+            )`;
+            gsap.to(".revealer-1, .revealer-2", {
+              clipPath: clipPath1,
+              ease: "none",
+              duration: 0,
+            });
+          },
+        }),
+      ScrollTrigger.create({
+          trigger: ".header-info",
+          start: "top top",
+          end: "bottom 60%",
+          scrub: 1,
+          onUpdate: (self) => {
+            const progress = self.progress;
+            const left = 35 +15 * progress ;
+            gsap.to(".revealer",{
+              left :`${left}%`,
+              ease: 'none',
+              duration: 0,
+            })
+          },
+        }),
+        ScrollTrigger.create({
+          trigger: ".whitespace",
+          start: "top 50%",
+          end: "bottom bottom",
+          scrub: 1,
+          onUpdate: (self) => {
+            const scale = 1 + 12 * self.progress ;
+            gsap.to(".revealer",{
+              scale:scale,
+              ease: 'none',
+              duration:0 ,
+            })
+          },
         });
-      },
-    });
     return () => {
       lenis.destroy();
       gsap.ticker.remove(lenis.raf);
@@ -97,7 +137,7 @@ const About = () => {
 
       {/* Section 2: Header Info */}
       <section className="header-info relative w-full h-screen flex flex-col justify-between bg-black text-white">
-        <p className="p-[1em] text-[52px] font-light">
+        <p className="p-[1em] header-p text-[52px] font-light">
           We're a tight-knit collective of artists and creative minds dedicated
           to crafting unique film and photographic works that entertain and
           engage.
@@ -119,7 +159,8 @@ const About = () => {
       </section>
 
       {/* Section 3: Whitespace */}
-      <section className="whitespace relative w-full h-[300vh] bg-black z-10"></section>
+      <section className="whitespace relative w-full h-[200vh] bg-black -z-10">
+      </section>
 
       {/* Section 4: Pinned Section */}
       <section className="pinned absolute top-[0vh] w-full h-[150vh] z-40">
@@ -127,6 +168,9 @@ const About = () => {
           <div className="revealer-1"></div>
           <div className="revealer-2"></div>
         </div>
+      </section>
+      <section className="web-content relative w-full h-[150vh] bg-white z-50">
+        <h1 className="text-[72px] font-semibold uppercase tracking-normal text-black">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum unde pariatur minus assumenda quo, fuga incidunt libero iusto odit voluptates.</h1>
       </section>
     </div>
   );

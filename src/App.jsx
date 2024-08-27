@@ -3,6 +3,7 @@ import Hero from './pages/Hero'
 import Nav from './components/Nav'
 import About from './pages/About'
 import Projects from './pages/Projects'
+import More from './pages/More'
 
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
     <Hero/>
     <About/>
     <Projects/>
+    <More/>
     </>
   )
 }

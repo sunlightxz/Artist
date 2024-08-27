@@ -36,7 +36,6 @@ const About = () => {
       end: "bottom top",
       pin: true,
       pinSpacing: false,
-      markers:true ,
     }),
     ScrollTrigger.create({
         trigger: ".header-info",
@@ -45,7 +44,6 @@ const About = () => {
         end: "bottom top",
         pin: true,
         pinSpacing: false,
-        markers:true ,
 
       }),
     ScrollTrigger.create({
@@ -166,7 +164,7 @@ const About = () => {
       </section>
 
       {/* Section 4: Pinned Section */}
-      <section className="pinned absolute top-[0vh] w-full h-[150vh] z-40">
+      <section className="pinned absolute top-[0vh] w-full h-[150vh] z-30">
         <div className="revealer">
           <div className="revealer-1">
           </div>

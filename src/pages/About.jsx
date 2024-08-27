@@ -137,11 +137,14 @@ const About = () => {
 
       {/* Section 2: Header Info */}
       <section className="header-info relative w-full h-screen flex flex-col justify-between bg-black text-white">
-        <p className="p-[1em] header-p text-[52px] font-light">
-          We're a tight-knit collective of artists and creative minds dedicated
-          to crafting unique film and photographic works that entertain and
-          engage.
-        </p>
+        <div className="flex justify-between items-center px-[.5em]">
+            <span className="text-[1em] basis-1/2">(Introduction)</span>
+            <p className="text-[2em] tracking-tighter leading-none font-light basis-1/2">
+            We're a tight-knit collective of artists and creative minds dedicated
+            to crafting unique film and photographic works that entertain and
+            engage.
+            </p>
+        </div>
         <div className="header-images w-full h-[250px] p-[1em] flex gap-4">
           <div className="img w-full h-full">
             <img src={img2} alt="" />
@@ -165,13 +168,12 @@ const About = () => {
       {/* Section 4: Pinned Section */}
       <section className="pinned absolute top-[0vh] w-full h-[150vh] z-40">
         <div className="revealer">
-          <div className="revealer-1"></div>
+          <div className="revealer-1">
+          </div>
           <div className="revealer-2"></div>
         </div>
       </section>
-      <section className="web-content relative w-full h-[150vh] bg-white z-50">
-        <h1 className="text-[72px] font-semibold uppercase tracking-normal text-black">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Laborum unde pariatur minus assumenda quo, fuga incidunt libero iusto odit voluptates.</h1>
-      </section>
+   
     </div>
   );
 };

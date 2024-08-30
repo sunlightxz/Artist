@@ -9,22 +9,31 @@ gsap.registerPlugin(ScrollTrigger);
 const More = () => {
    
   useEffect(() => {
-    gsap.fromTo('.cont-paint', 
-      { clipPath: 'inset(100% 0 0 0)' }, // Initial state: completely clipped
-      {
-        clipPath: 'inset(0 0 0 0)', // Final state: fully visible
-        duration: 1,
-        ease: 'power2.out',
-        stagger: 0.5,
-        scrollTrigger: {
-          trigger: '.cont-paint',
-          start: 'top 80%',
-          end: 'bottom 20%',
-          scrub: true,
-          markers: true,
-        },
+    const sections = gsap.utils.toArray('.cont-paint');
+
+    sections.forEach((section) => {
+      const sectionPadding = section.querySelector('.section-padding');
+
+      if (sectionPadding) {
+        gsap.fromTo(
+          sectionPadding,
+          { clipPath: 'inset(100% 0 0 0)' }, // Initial state
+          {
+            clipPath: 'inset(0% 0% 0% 0%)', // Final state
+            ease: 'power2.out',
+            duration: 1,
+            stagger: 0.5,
+            scrollTrigger: {
+              trigger: section,
+              start: 'top 80%',
+              end: 'bottom 22%',
+              scrub: true,
+              markers: true, // Optional: to help debug the scroll trigger positions
+            },
+          }
+        );
       }
-    );
+    });
   }, []);
 
   return (

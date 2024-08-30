@@ -4,6 +4,7 @@ import Nav from './components/Nav'
 import About from './pages/About'
 import Projects from './pages/Projects'
 import More from './pages/More'
+import Contact from './pages/Paint'
 
 
 function App() {
@@ -15,7 +16,6 @@ function App() {
     <About/>
     <Projects/>
     <More/>
-    
     </>
   )
 }

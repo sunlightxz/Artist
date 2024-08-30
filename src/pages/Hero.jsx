@@ -7,7 +7,6 @@ const Hero = () => {
   const mainRef = useRef(null);
   useEffect(() => {
 
-    
     gsap.registerPlugin(ScrollTrigger);
 
     // ScrollTrigger for the entire section

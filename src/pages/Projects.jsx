@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import img2 from "/img2.webp"; // Placeholder image, you'll replace this dynamically
+import img2 from "/about6.png"; // Placeholder image, you'll replace this dynamically
 import { gsap } from "gsap";
 
 const Projects = () => {
@@ -14,9 +14,9 @@ const Projects = () => {
     let isInside = false;
 
     const images = {
-      p1: "/item1.png",
-      p2: "/img2.webp",
-      p3: "/item2.png",
+      p1: "/item2.png",
+      p2: "/about5.png",
+      p3: "/about4.png",
     };
 
     const handleMouseMove = (e) => {
@@ -100,8 +100,8 @@ const Projects = () => {
       </div>
 
       <div className="flex justify-between px-[25px] pt-[80px]">
-        <div className="basis-1/2 h-[460px] w-[460px]">
-          <img src={img2} alt="" />
+        <div className="basis-1/2 h-[500px] w-[460px]">
+          <img src={img2} className ="object-cover h-full w-[460px]" alt="" />
         </div>
         <div className="basis-1/2 flex flex-col items-center">
           <div className="">

@@ -1,5 +1,10 @@
 import React, { useEffect } from "react";
-import img2 from "/img2.webp";
+import about2 from "/about2.png";
+import about1 from "/about1.png";
+import about3 from "/about3.png";
+import about4 from "/about4.png";
+import about5 from "/about5.png";
+
 import { ScrollTrigger } from "gsap/all";
 import gsap from "gsap";
 import Lenis from "@studio-freight/lenis";
@@ -143,18 +148,21 @@ const About = () => {
             engage.
             </p>
         </div>
-        <div className="header-images w-full h-[250px] p-[1em] flex gap-4">
-          <div className="img w-full h-full">
-            <img src={img2} alt="" />
+        <div className="header-images w-full h-[250px] grid grid-cols-4 relative p-[1em] overflow-hidden  gap-4">
+          <div className="img  h-full">
+            <img src={about5} alt="" />
           </div>
-          <div className="img w-full h-full">
-            <img src={img2} alt="" />
+          <div className="img  h-full">
+            <img src={about2} alt="" />
           </div>
-          <div className="img w-full h-full">
-            <img src={img2} alt="" />
+          <div className="img  h-full">
+            <img src={about3} alt="" />
           </div>
-          <div className="img w-full h-full">
-            <img src={img2} alt="" />
+          <div className="img h-full">
+            <img src={about4} alt="" />
+          </div>
+          <div className="img h-full">
+            <img src={about1} alt="" />
           </div>
         </div>
       </section>

@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import footerlg from "/ts.jpg";
+import footerlg from "/img3.png";
 import { format } from "date-fns";
 import { enUS } from "date-fns/locale";
 import { MdOutlineEmail } from "react-icons/md";
@@ -99,8 +99,8 @@ const Footer = () => {
               <line x1="5" y1="12" x2="19" y2="12"></line>
             </svg>
           </div>
-          <h1 className="lg:text-[160px] md2:text-[110px] sm:text-[70px] text-[44px]  text-[#31726D] font-bold">
-            ARTIST
+          <h1 className="lg:text-[160px] uppercase md2:text-[110px] sm:text-[70px] text-[44px]  text-yellow-200 font-bold">
+            Artwork
           </h1>
           
           <a
@@ -166,12 +166,12 @@ const Footer = () => {
           <div className=" border-t border-[#353535]  py-10 mx-auto w-5/6">
             <div className="flex flex-col">
               <div className="flex flex-row md:justify-between justify-center items-center gap-16">
-                <div className="relative hidden md:inline-block">
-                  <img src={footerlg} className="w-[300px]" alt="" />
+                <div className="relative hidden md:inline-block ">
+                  <img src={footerlg} className="w-[300px] h-full" alt="" />
                 </div>
                 <div className="flex flex-row justify-between md:gap-16 gap-8">
                   <div className="flex flex-col ">
-                    <span className="text-[#3C3935] font-medium text-lg">
+                    <span className="text-[#183836] font-medium text-lg">
                       Navigation
                     </span>
                     <a
@@ -200,7 +200,7 @@ const Footer = () => {
                     </a>
                   </div>
                   <div className="flex flex-col ">
-                    <span className="text-[#3C3935] font-medium text-lg">
+                    <span className="text-[#183836] font-medium text-lg">
                       Socials
                     </span>
                     <a
@@ -229,7 +229,7 @@ const Footer = () => {
                     </a>
                   </div>
                   <div className="flex flex-col ">
-                    <span className="text-[#3C3935] font-medium text-lg">
+                    <span className="text-[#183836] font-medium text-lg">
                       Help
                     </span>
                     <a
@@ -249,7 +249,7 @@ const Footer = () => {
               </div>
             </div>
             <div className="mt-10 flex flex-col items-end w-full">
-              <p className="text-sm text-gray-700 flex flex-col items-start">
+              <p className="text-sm text-[#31726D] flex flex-col items-start">
                 <span className="font-bold">LOCAL TIME</span>
                 {formattedTime} Casablanca, MA{" "}
               </p>

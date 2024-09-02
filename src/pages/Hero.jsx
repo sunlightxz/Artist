@@ -1,14 +1,29 @@
 import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-import img1 from "/img1.png";
+import Lenis from "@studio-freight/lenis";
+import img1 from "/imgx.png";
 
 const Hero = () => {
   const mainRef = useRef(null);
   useEffect(() => {
 
     gsap.registerPlugin(ScrollTrigger);
+    const lenis = new Lenis({
+      duration: 2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smooth: true,
+    });
 
+    function raf(time) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Update ScrollTrigger on Lenis scroll
+    lenis.on("scroll", ScrollTrigger.update);
     // ScrollTrigger for the entire section
     ScrollTrigger.create({
       trigger: ".website-content",

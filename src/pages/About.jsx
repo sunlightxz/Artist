@@ -127,7 +127,7 @@ const About = () => {
         <div className="header-rows flex relative w-full flex-col text-white py-0 px-0">
           <div className="header-row w-full flex justify-start items-center h-[250px] px-0 py-[2em]">
             <h1 className="text-[230px] p-[.5em] font-semibold uppercase tracking-tighter">
-              Motion
+              Design
             </h1>
           </div>
           <div className="header-row w-full flex justify-end items-center h-[250px] px-0 py-[2em]">
@@ -161,9 +161,7 @@ const About = () => {
           <div className="img h-full">
             <img src={about4} alt="" />
           </div>
-          <div className="img h-full">
-            <img src={about1} alt="" />
-          </div>
+       
         </div>
       </section>
 

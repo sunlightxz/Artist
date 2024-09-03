@@ -1,10 +1,12 @@
-import React, { useState, useEffect } from 'react';
-import Hero from './pages/Hero';
-import Nav from './components/Nav';
-import About from './pages/About';
-import Projects from './pages/Projects';
-import More from './pages/More';
-import { gsap } from 'gsap';
+import React, { useState, useEffect } from "react";
+import Hero from "./pages/Hero";
+import Nav from "./components/Nav";
+import About from "./pages/About";
+import Projects from "./pages/Projects";
+import More from "./pages/More";
+import { gsap } from "gsap";
+import LocomotiveScroll from "locomotive-scroll";
+import { AnimatePresence } from "framer-motion";
 
 function Preloader() {
   return (
@@ -48,79 +50,76 @@ function App() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const handleLoad = () => {
-      const timeline = gsap.timeline({
-        onComplete: () => {
-          setLoading(false);
-        },
-      });
+    const scroll = new LocomotiveScroll();
 
-      timeline
-      .from(".clip-top, .clip-bottom", 2, {
+    const handleLoad = () => {
+      gsap.from(".clip-top, .clip-bottom", 2, {
         height: "50vh",
         delay: 1,
         ease: "power5.inOut",
-      })
-      .to(".marquee", 3.5, {
+      });
+
+      gsap.to(".marquee", 3.5, {
         delay: 0.75,
         top: "50%",
         ease: "power3.inOut",
-      })
-      .to(".clip-top .marquee, .clip-bottom .marquee", 5, {
+      });
+      gsap.to(".clip-top .marquee, .clip-bottom .marquee", 5, {
         delay: 1,
         left: "100%",
         ease: "power3.inOut",
-      })
-      .to(".clip-center .marquee", 5, {
+      });
+      gsap.to(".clip-center .marquee", 5, {
         delay: 1,
         left: "20%",
         ease: "power4.inOut",
-      })
-      .to(".clip-top", 2, {
+      });
+      gsap.to(".clip-top", 2, {
         delay: 6,
         clipPath: "inset(0 0 100% 0)",
         ease: "power4.inOut",
-      })
-      .to(".clip-bottom", 2, {
+      });
+      gsap.to(".clip-bottom", 2, {
         delay: 6,
         clipPath: "inset(100% 0 0 0)",
         ease: "power4.inOut",
-      })
-      .to(".clip-top .marquee, .clip-bottom .marquee, .clip-center .marquee span", 1, {
-        delay: 6,
-        opacity: 0,
-        ease: "power2.inOut",
-      })
-      .add(() => {
-        console.log("Final step: showing main content");
-        document.querySelector(".containerpage").style.opacity = "1";
-        document.querySelector(".loader").style.display = "none";
       });
-  };
+      gsap.to(
+        ".clip-top .marquee, .clip-bottom .marquee, .clip-center .marquee span",
+        1,
+        {
+          delay: 6,
+          opacity: 0,
+          ease: "power2.inOut",
+          onComplete: () => {
+            setLoading(false);
+          },
+        }
+      );
+    };
 
-  window.addEventListener("load", handleLoad);
+    window.addEventListener("load", handleLoad);
 
-  return () => {
-    window.removeEventListener("load", handleLoad);
-  };
-}, []);
+    return () => {
+      window.removeEventListener("load", handleLoad);
+    };
+  }, []);
 
   return (
-    <div className="">
-      {loading && <Preloader />}
-      <div className={`h-full w-full containerpage ${loading ? 'opacity-0' : 'opacity-100'}`}>
+    <AnimatePresence mode="wait">
+    {loading ? (
+      <Preloader key="preloader" />
+    ) : (
+      <div className="h-full w-full containerpage">
         <Nav />
-        <Hero/>
+        <Hero />
         <About />
         <Projects />
         <More />
       </div>
-    </div>
+    )}
+  </AnimatePresence>
   );
 }
 
 export default App;
-
-
-
-

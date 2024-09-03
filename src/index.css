@@ -94,3 +94,20 @@ lenis lenis-stopped {
 }
 
 
+.clip-top {
+  clip-path: inset(0 0 0 0);
+}
+.clip-bottom {
+  clip-path: inset(0 0 0 0);
+}
+
+.marquee {
+  position: absolute;
+  top: 200%;
+  left: 50% ;
+  transform: translate(-50% ,-50%);
+  width: 200vw;
+  color: #fff;
+  mix-blend-mode: difference;
+  font-size: 16vw;
+}

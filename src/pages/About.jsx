@@ -34,7 +34,6 @@ const About = () => {
     gsap.ticker.lagSmoothing(0);
     gsap.registerPlugin(ScrollTrigger);
 
-    // Horizontal scroll effect
     ScrollTrigger.create({
       trigger: ".pinned",
       start: "top top",
@@ -42,50 +41,78 @@ const About = () => {
       end: "bottom top",
       pin: true,
       pinSpacing: false,
-      onUpdate: (self) => {
-        const scrollProgress = self.progress;
-        const maxScrollX = document.querySelector(".header-images").scrollWidth - window.innerWidth;
-        const scrollX = scrollProgress * maxScrollX;
-        gsap.to(".header-images", {
-          scrollLeft: scrollX,
-          ease: "none",
-          duration: 0
-        });
-      }
-    });
-
-    // ScrollTrigger settings for other animations
+    }),
     ScrollTrigger.create({
-      trigger: ".header-info",
-      start: "top top",
-      end: "bottom 60%",
-      scrub: 1,
-      onUpdate: (self) => {
-        const progress = self.progress;
-        const left = 35 + 15 * progress;
-        gsap.to(".revealer", {
-          left: `${left}%`,
-          ease: 'none',
-          duration: 0,
-        });
-      }
-    });
+        trigger: ".header-info",
+        start: "top top",
+        endTrigger: ".whitespace",
+        end: "bottom top",
+        pin: true,
+        pinSpacing: false,
 
+      }),
     ScrollTrigger.create({
-      trigger: ".whitespace",
-      start: "top 50%",
-      end: "bottom bottom",
-      scrub: 1,
-      onUpdate: (self) => {
-        const scale = 1 + 12 * self.progress;
-        gsap.to(".revealer", {
-          scale: scale,
-          ease: 'none',
-          duration: 0,
+        trigger: ".pinned",
+        start: "top top",
+        endTrigger: ".header-info",
+        end: "bottom bottom",
+        onUpdate: (self) => {
+          const rotation = self.progress * 360;
+          gsap.to(".revealer", { rotation });
+          gsap.to(".revealer", {scale: 0.5, duration: 2.5});
+  
+        },
+      }),
+  
+      ScrollTrigger.create({
+        trigger: ".pinned",
+        start: "top top",
+        endTrigger: ".header-info",
+        end: "bottom bottom",
+        onUpdate: (self) => {
+          const progress = self.progress;
+          const clipPath1 = `polygon(
+              ${45 - 45 * progress}% ${0 + 0 * progress}%,
+              ${55 + 45 * progress}% ${0 + 0 * progress}%,
+              ${55 + 45 * progress}% ${100 - 0 * progress}%,
+              ${45 - 45 * progress}% ${100 - 0 * progress}%
+            )`;
+            gsap.to(".revealer-1, .revealer-2", {
+              clipPath: clipPath1,
+              ease: "none",
+              duration: 0,
+            });
+          },
+        }),
+      ScrollTrigger.create({
+          trigger: ".header-info",
+          start: "top top",
+          end: "bottom 60%",
+          scrub: 1,
+          onUpdate: (self) => {
+            const progress = self.progress;
+            const left = 35 +15 * progress ;
+            gsap.to(".revealer",{
+              left :`${left}%`,
+              ease: 'none',
+              duration: 0,
+            })
+          },
+        }),
+        ScrollTrigger.create({
+          trigger: ".whitespace",
+          start: "top 50%",
+          end: "bottom bottom",
+          scrub: 1,
+          onUpdate: (self) => {
+            const scale = 1 + 12 * self.progress ;
+            gsap.to(".revealer",{
+              scale:scale,
+              ease: 'none',
+              duration:0 ,
+            })
+          },
         });
-      }
-    });
-
     return () => {
       lenis.destroy();
       gsap.ticker.remove(lenis.raf);
@@ -114,21 +141,21 @@ const About = () => {
       {/* Section 2: Header Info */}
       <section className="header-info relative w-full h-screen flex flex-col justify-between bg-black text-white">
         <div className="flex justify-between items-center px-[.5em]">
-          <span className="text-[1em] basis-1/2">(Introduction)</span>
-          <p className="text-[2em] tracking-tighter leading-none font-light basis-1/2">
+            <span className="text-[1em] basis-1/2">(Introduction)</span>
+            <p className="text-[2em] tracking-tighter leading-none font-light basis-1/2">
             We're a tight-knit collective of artists and creative minds dedicated
             to crafting unique film and photographic works that entertain and
             engage.
-          </p>
+            </p>
         </div>
-        <div className="header-images w-full h-[250px] relative p-[1em] overflow-x-auto">
-          <div className="img h-full">
+        <div className="header-images w-full h-[250px] relative p-[1em] grid grid-cols-4 over gap-4">
+          <div className="img  h-full">
             <img src={about5} alt="" />
           </div>
-          <div className="img h-full">
+          <div className="img  h-full">
             <img src={about2} alt="" />
           </div>
-          <div className="img h-full">
+          <div className="img  h-full">
             <img src={about3} alt="" />
           </div>
           <div className="img h-full">
@@ -147,10 +174,12 @@ const About = () => {
       {/* Section 4: Pinned Section */}
       <section className="pinned absolute top-[0vh] w-full h-[150vh] z-30">
         <div className="revealer">
-          <div className="revealer-1"></div>
+          <div className="revealer-1">
+          </div>
           <div className="revealer-2"></div>
         </div>
       </section>
+   
     </div>
   );
 };

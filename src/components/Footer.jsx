@@ -99,8 +99,8 @@ const Footer = () => {
               <line x1="5" y1="12" x2="19" y2="12"></line>
             </svg>
           </div>
-          <h1 className="lg:text-[160px] uppercase md2:text-[110px] sm:text-[70px] text-[44px]  text-yellow-200 font-bold">
-            Artwork
+          <h1 className="lg:text-[160px] uppercase md2:text-[110px] sm:text-[70px] text-[44px]  text-white font-bold">
+            Artworks
           </h1>
           
           <a

@@ -1,13 +1,21 @@
 import React, { useEffect, useRef } from "react";
 import img2 from "/about6.png"; // Placeholder image, you'll replace this dynamically
 import { gsap } from "gsap";
+import hoverEffect from 'hover-effect'
 
 const Projects = () => {
   const projectsRef = useRef(null);
   const previewRef = useRef(null);
   const previewImgRef = useRef(null);
-
+ 
   useEffect(() => {
+    const myAnimation = new hoverEffect({
+      parent: document.querySelector('.wrapper'),
+      intensity: 0.6,
+      image1: '/about6.png',
+      image2: '/about5.png',
+      displacementImage: '/about4.png'
+  });
     const projects = projectsRef.current;
     const preview = previewRef.current;
     const previewImg = previewImgRef.current;
@@ -101,7 +109,8 @@ const Projects = () => {
 
       <div className="flex justify-between px-[25px] pt-[80px]">
         <div className="basis-1/2 h-[500px] w-[460px]">
-          <img src={img2} className ="object-cover h-full w-[460px]" alt="" />
+            <div className="wrapper h-full w-[460px] object-cover bg-no-repeat"></div>
+            <img className="" alt="" />
         </div>
         <div className="basis-1/2 flex flex-col items-center">
           <div className="">

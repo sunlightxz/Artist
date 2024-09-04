@@ -109,7 +109,7 @@ const Projects = () => {
 
       <div className="flex justify-between px-[25px] pt-[80px]">
         <div className="basis-1/2 h-[500px] w-[460px]">
-            <div className="wrapper h-full w-[460px] object-cover bg-no-repeat"></div>
+            <div className="wrapper h-full w-[460px] object-cover bg-no-repeat cursor-pointer"></div>
             <img className="" alt="" />
         </div>
         <div className="basis-1/2 flex flex-col items-center">

@@ -13,7 +13,7 @@ function Preloader() {
     <div className="loader w-[100vw] h-[100vh]">
       <div className="absolute h-[33%] w-[100vw] overflow-clip z-50 loader-clip clip-top top-0 bg-black">
         <div className="marquee">
-          <div className="marquee-container w-full pt-[0.2em] flex justify-between items-center">
+          <div className="marquee-container w-full pt-[0.2em] flex justify-between items-center uppercase">
             <span>ARTWORKS</span>
             <span>ARTWORKS</span>
             ARTWORKS
@@ -71,7 +71,7 @@ function App() {
       });
       gsap.to(".clip-center .marquee", 5, {
         delay: 1,
-        left: "20%",
+        left: "30%",
         ease: "power4.inOut",
       });
       gsap.to(".clip-top", 2, {

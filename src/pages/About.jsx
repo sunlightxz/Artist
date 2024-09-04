@@ -105,7 +105,7 @@ const About = () => {
           end: "bottom bottom",
           scrub: 1,
           onUpdate: (self) => {
-            const scale = 1 + 12 * self.progress ;
+            const scale = 1 + 14 * self.progress ;
             gsap.to(".revealer",{
               scale:scale,
               ease: 'none',
@@ -142,7 +142,7 @@ const About = () => {
       <section className="header-info relative w-full h-screen flex flex-col justify-between bg-black text-white">
         <div className="flex justify-between items-center px-[.5em]">
             <span className="text-[1em] basis-1/2">(Introduction)</span>
-            <p className="text-[2em] tracking-tighter leading-none font-light basis-1/2">
+            <p className="text-[2em] tracking-tight leading-none font-light basis-1/2">
             We're a tight-knit collective of artists and creative minds dedicated
             to crafting unique film and photographic works that entertain and
             engage.

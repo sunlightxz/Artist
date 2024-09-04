@@ -2,12 +2,15 @@ import React, { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 import Lenis from "@studio-freight/lenis";
-import img1 from "/imgx.png";
+import img1 from "/picture2.jpg";
 
 const Hero = () => {
   const mainRef = useRef(null);
+  const imgContainer = useRef(null);
+
   useEffect(() => {
 
+   
     gsap.registerPlugin(ScrollTrigger);
     const lenis = new Lenis({
       duration: 1.2,
@@ -77,7 +80,7 @@ const Hero = () => {
     }, []);
 
   return (
-    <div className=" h-[170vh] sticky top-0 z-10 min-h-[80vh] bg-[#E7E7E1]  w-full" ref={mainRef}>
+    <div className=" h-[170vh] sticky top-0 z-10 min-h-[80vh] bg-white  w-full" ref={mainRef}>
       <div className="h-screen w-full flex  sticky top-0 overflow-hidden">
         <div className="h-full w-full flex items-center relative justify-center overflow-visible">
         <div className="z-20 header  w-full text-black flex justify-center overflow-visible">
@@ -95,8 +98,8 @@ const Hero = () => {
           </div>
         </div>
         <div className="website-content min-h-screen absolute top-0 w-full z-10">
-        <div className="img-holder">
-          <img className="object-cover w-full h-full" src={img1} alt="hero.jpg" />
+        <div className="img-holder " ref={imgContainer}>
+          <img className="object-cover w-full h-full " src={img1}   alt="hero.jpg" />
         </div>
         </div>
         </div>

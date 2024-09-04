@@ -45,11 +45,11 @@ const Footer = () => {
   return (
     <footer
       ref={footerRef}
-      className="sticky bottom-0 w-full min-h-[70vh] bg-[#182A2A]"
+      className="sticky bottom-0 w-full min-h-[70vh] bg-black"
     >
       <div className="w-full h-full overflow-hidden pt-14 sm:pt-16 3xl:px-[10%] px-6  sm:px-[4%]">
         <div className="w-full h-full flex flex-col items-center justify-center overflow-hidden">
-          <div className="flex w-full items-center justify-between">
+        <div className="flex w-full items-center justify-between">
             <svg
               stroke="currentColor"
               fill="none"
@@ -57,8 +57,8 @@ const Footer = () => {
               viewBox="0 0 24 24"
               strokeLinecap="round" // Corrected: 'stroke-linecap' to 'strokeLinecap'
               strokeLinejoin="round" // Corrected: 'stroke-linejoin' to 'strokeLinejoin'
-              color="#31726E"
-              style={{ color: "#31726E" }}
+              color="#fcf7c1"
+              style={{ color: "#fcf7c1" }}
               height="32"
               width="32"
               xmlns="http://www.w3.org/2000/svg"
@@ -73,8 +73,8 @@ const Footer = () => {
               viewBox="0 0 24 24"
               strokeLinecap="round" // Corrected: 'stroke-linecap' to 'strokeLinecap'
               strokeLinejoin="round" // Corrected: 'stroke-linejoin' to 'strokeLinejoin'
-              color="#31726E"
-              style={{ color: "#31726E" }}
+              color="#fcf7c1"
+              style={{ color: "#fcf7c1" }}
               height="32"
               width="32"
               xmlns="http://www.w3.org/2000/svg"
@@ -89,8 +89,8 @@ const Footer = () => {
               viewBox="0 0 24 24"
               strokeLinecap="round" // Corrected: 'stroke-linecap' to 'strokeLinecap'
               strokeLinejoin="round" // Corrected: 'stroke-linejoin' to 'strokeLinejoin'
-              color="#31726E"
-              style={{ color: "#31726E" }}
+              color="#fcf7c1"
+              style={{ color: "#fcf7c1" }}
               height="32"
               width="32"
               xmlns="http://www.w3.org/2000/svg"
@@ -105,12 +105,12 @@ const Footer = () => {
           
           <a
             href="mailto:amineasfar101@gmail.com"
-            className="uppercase text-white py-4 px-6 bg-black rounded-3xl flex justify-center items-center gap-3"
+            className="uppercase text-black py-4 px-6 bg-white rounded-3xl flex justify-center items-center gap-3"
           >
             <MdOutlineEmail className="text-[25px]" />
             drop me an email
           </a>
-          <div className="flex w-full items-center justify-between">
+          <div className="flex mt-2 w-full items-center justify-between">
             <svg
               stroke="currentColor"
               fill="none"
@@ -118,8 +118,8 @@ const Footer = () => {
               viewBox="0 0 24 24"
               strokeLinecap="round" // Corrected: 'stroke-linecap' to 'strokeLinecap'
               strokeLinejoin="round" // Corrected: 'stroke-linejoin' to 'strokeLinejoin'
-              color="#31726E"
-              style={{ color: "#31726E" }}
+              color="#fcf7c1"
+              style={{ color: "#fcf7c1" }}
               height="32"
               width="32"
               xmlns="http://www.w3.org/2000/svg"
@@ -134,8 +134,8 @@ const Footer = () => {
               viewBox="0 0 24 24"
               strokeLinecap="round" // Corrected: 'stroke-linecap' to 'strokeLinecap'
               strokeLinejoin="round" // Corrected: 'stroke-linejoin' to 'strokeLinejoin'
-              color="#31726E"
-              style={{ color: "#31726E" }}
+              color="#fcf7c1"
+              style={{ color: "#fcf7c1" }}
               height="32"
               width="32"
               xmlns="http://www.w3.org/2000/svg"
@@ -150,8 +150,8 @@ const Footer = () => {
               viewBox="0 0 24 24"
               strokeLinecap="round" // Corrected: 'stroke-linecap' to 'strokeLinecap'
               strokeLinejoin="round" // Corrected: 'stroke-linejoin' to 'strokeLinejoin'
-              color="#31726E"
-              style={{ color: "#31726E" }}
+              color="#fcf7c1"
+              style={{ color: "#fcf7c1" }}
               height="32"
               width="32"
               xmlns="http://www.w3.org/2000/svg"
@@ -171,7 +171,7 @@ const Footer = () => {
                 </div>
                 <div className="flex flex-row justify-between md:gap-16 gap-8">
                   <div className="flex flex-col ">
-                    <span className="text-[#183836] font-medium text-lg">
+                    <span className="text-yellow-100 font-medium text-lg">
                       Navigation
                     </span>
                     <a
@@ -200,7 +200,7 @@ const Footer = () => {
                     </a>
                   </div>
                   <div className="flex flex-col ">
-                    <span className="text-[#183836] font-medium text-lg">
+                    <span className="text-yellow-100 font-medium text-lg">
                       Socials
                     </span>
                     <a
@@ -229,7 +229,7 @@ const Footer = () => {
                     </a>
                   </div>
                   <div className="flex flex-col ">
-                    <span className="text-[#183836] font-medium text-lg">
+                    <span className="text-yellow-100 font-medium text-lg">
                       Help
                     </span>
                     <a
@@ -248,8 +248,9 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="mt-10 flex flex-col items-end w-full">
-              <p className="text-sm text-[#31726D] flex flex-col items-start">
+            <div className="mt-10 flex justify-between w-full items-center">
+              <span className="text-yellow-100">Made by <a className="font-semibold text-lg text-[#389c94]" href="https://github.com/sunlightxz">sunlightxz</a></span>
+              <p className="text-sm text-yellow-100 flex flex-col items-start">
                 <span className="font-bold">LOCAL TIME</span>
                 {formattedTime} Casablanca, MA{" "}
               </p>
